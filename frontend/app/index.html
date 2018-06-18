@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html >
+
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <title>Vivitri Beer Craft</title>
+    <meta name="description" content="check out your favorite games here and get them from our partners ...">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.css" />
+    <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-sass-pack/bootstrap-material-design/dist/css/ripples.css" />
+    <link rel="stylesheet" href="bower_components/allmighty-autocomplete/style/autocomplete.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+
+
+
+  </head>
+  <body ng-app="testingApp" ng-cloak >
+    <div id="outdated"></div>
+    <toast></toast>
+
+
+    <header ng-include="'views/header.html'"></header>
+
+
+
+    <!-- <div class="container" id="view"> -->
+        <div ng-view class=""></div>
+    <!-- </div> -->
+
+
+    <div class="clearfix"></div>
+    <my-footer></my-footer>
+
+
+
+
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <!-- <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+    <script>
+        //event listener: DOM ready
+        function addLoadEvent(func) {
+          var oldonload = window.onload;
+          if (typeof window.onload != 'function') {
+              window.onload = func;
+          } else {
+              window.onload = function() {
+                  if (oldonload) {
+                      oldonload();
+                  }
+                  func();
+              }
+          }
+        }
+        //call plugin function after DOM ready
+        addLoadEvent(function(){
+          outdatedBrowser({
+              bgColor: '#f25648',
+              color: '#ffffff',
+              lowerThan: 'transform',
+              languagePath: 'your_path/outdatedbrowser/lang/en.html'
+          })
+        });
+    </script> -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/outdated-browser/outdatedbrowser/outdatedbrowser.min.js"></script>
+    <script src="bower_components/ngToast/dist/ngToast.js"></script>
+    <script src="bower_components/angular-click-outside/clickoutside.directive.js"></script>
+    <script src="bower_components/ng-timeago/ngtimeago.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angularjs-sass-pack/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angularjs-sass-pack/angular-bootstrap-material/dist/angular-bootstrap-material.js"></script>
+    <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+    <script src="bower_components/allmighty-autocomplete/script/autocomplete.js"></script>
+    <script src="bower_components/angular-ui-scroll/dist/ui-scroll.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/directives/myfooter.js"></script>
+    <script src="scripts/services/beerstyle.js"></script>
+    <!-- endbuild -->
+
+</body>
+
+</html>

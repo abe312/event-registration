@@ -1,0 +1,297 @@
+
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active,
+.hvr-grow-current {
+    transform: scale(1.1);
+}
+
+
+$loaderHeightWidth:120px;
+$loaderPrimaryColor:#18bc9c;
+$loaderBorderSize:3px;
+$loaderMinHeightWidth:10px;
+$loaderMaxHeightWidth:400px;
+.light-spinner {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   height:60px;
+   width:60px;
+   margin:0px auto;
+   -webkit-animation: rotation 1s infinite linear;
+   -moz-animation: rotation 1s infinite linear;
+   -o-animation: rotation 1s infinite linear;
+   animation: rotation 1s infinite linear;
+   border-left:6px solid rgba(0,174,239,.15);
+   border-right:6px solid rgba(0,174,239,.15);
+   border-bottom:6px solid rgba(0,174,239,.15);
+   border-top:6px solid rgba(0,174,239,.8);
+   border-radius:100%;
+
+}
+
+@-webkit-keyframes rotation {
+   from {-webkit-transform: rotate(0deg);}
+   to {-webkit-transform: rotate(359deg);}
+}
+@-moz-keyframes rotation {
+   from {-moz-transform: rotate(0deg);}
+   to {-moz-transform: rotate(359deg);}
+}
+@-o-keyframes rotation {
+   from {-o-transform: rotate(0deg);}
+   to {-o-transform: rotate(359deg);}
+}
+@keyframes rotation {
+   from {transform: rotate(0deg);}
+   to {transform: rotate(359deg);}
+}
+
+
+
+
+//selectors
+::selection {
+  background: lighten(orange, 35%); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: lighten(orange, 35%); /* Gecko Browsers */
+}
+
+p.sred::selection {
+  background: #ffb7b7;
+}
+p.sred::-moz-selection {
+  background: #ffb7b7;
+}
+p.sblue::selection {
+  background: #a8d1ff;
+}
+p.sblue::-moz-selection {
+  background: #a8d1ff;
+}
+p.syellow::selection {
+  background: #fff2a8;
+}
+p.syellow::-moz-selection {
+  background: #fff2a8;
+}
+
+/* Combining like this WILL NOT WORK */
+// p.yellow::selection,
+// p.yellow::-moz-selection {
+//   background: #fff2a8;
+// }
+
+
+
+#view{
+//ng-view animation flip
+.content {
+	-webkit-transition: -webkit-transform 1s;
+	-webkit-perspective: 50%;
+}
+.content .flip {
+	-webkit-transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-webkit-transition: all 1s ease-in-out;
+}
+.content .flip.ng-enter {
+    -webkit-transform: rotateY(-180deg);
+}
+.content .flip.ng-enter-active {
+	-webkit-transform: rotateY(0deg);
+}
+.content .flip.ng-leave {
+	-webkit-transform: rotateY(0deg);
+}
+.content .flip.ng-leave-active {
+	-webkit-transform: rotateY(180deg);
+}
+
+
+//rotate
+.rotate {
+    -webkit-animation-duration: 1s;
+}
+.ng-leave.rotate {
+    -webkit-animation-name: rotate-leave;
+}
+.ng-enter.rotate {
+    -webkit-animation-name: rotate-enter;
+}
+@-webkit-keyframes rotate-leave {
+    0% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: rotate(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: rotate(-180deg);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes rotate-enter {
+    0% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: rotate(-180deg);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform-origin: center center;
+        -webkit-transform: rotate(-360deg);
+        opacity: 1;
+    }
+}
+}
+
+
+
+
+// rotate once animation
+
+@include mykeyframe(ronce){
+  0%{
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  60% {
+    transform: translateY(-25px) scale(2.5) rotate(360deg);
+    opacity: 1;
+  }
+  90%{
+     transform: translateY(-35px) scale(4);
+     opacity: 0;
+  }
+  100%{
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+
+.rotonce{
+  @include animation (ronce, 0.8s);
+}
+
+
+
+
+//effects for ng-enter
+
+/*starting enter animation*/
+// #food.ng-enter {
+//   transition: 0.5s linear all;
+//   opacity: 0.5;
+// }
+// /* finishing enter animation*/
+// #food.ng-enter.ng-enter-active {
+//    opacity: 1;
+//  }
+div[ng-view]{
+   p.ng-enter, p button.ng-enter {
+      @include bounceIn(
+        $duration: 1s,
+        $count: 1,
+        $delay: 0s,
+        $function: ease,
+        $fill: both
+      );
+ }
+ p.ng-leave, p button.ng-leave{
+     @include bounceOut(
+       $duration: 1s,
+       $delay: 0.5s
+     );
+ }
+}
+
+#food, .cart.cart--affix, .cart--smallscreen {
+    &.ng-enter{
+    @include fadeIn(
+      $duration: 1s
+    );
+  }
+    &.ng-leave{
+      @include fadeOut(
+        $duration: 1s
+      );
+    }
+}
+
+
+button.btn--checkout.ng-hide-remove {
+    // -webkit-animation: bounceIn 2.5s;
+    // animation: bounceIn 2.5s;
+    @include flipInX(
+      $duration: 1s,
+      $delay: 1s
+    );
+}
+
+button.btn--checkout.ng-hide-add, button.ng-show-add {
+    // -webkit-animation: flipOutX 2.5s;
+    // animation: flipOutX 2.5s;
+    @include flipOutX(
+       $duration: 1s,
+       $delay: 1.5s
+    );
+    display: block !important;
+}
+
+
+// effects for ng-enter  ToDos
+// li.ng-enter{
+//       @include fadeIn(
+//         $duration: 0.5s,
+//         $count: 1,
+//         $delay: 0.5s,
+//         $function: ease,
+//         $fill: both
+//       );
+//       -webkit-animation: fadeIn 0.5s;
+//     animation: fadeIn 0.5s;
+// }
+// div#viewport-positionedList ul li{
+//   &.ng-enter{
+//     @include fadeIn(
+//       $duration: 0.5s,
+//       $count: 1,
+//       $delay: 0.5s,
+//       $function: ease,
+//       $fill: both
+//     );
+//   }
+//   .ng-hide-remove {
+//     @include fadeOut(
+//       $duration: 0.5s,
+//       $count: 1,
+//       $delay: 0.5s,
+//       $function: ease,
+//       $fill: both
+//     );
+//   }
+//
+//   .ng-hide-add {
+//     @include fadeOut(
+//       $duration: 0.5s,
+//       $count: 1,
+//       $delay: 0.5s,
+//       $function: ease,
+//       $fill: both
+//     );
+//     display: block !important;
+//   }
+// }

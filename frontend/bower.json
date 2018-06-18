@@ -1,0 +1,33 @@
+{
+  "name": "testing",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.7.0",
+    "angular-animate": "^1.6.9",
+    "angular-cookies": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.7.0",
+    "angular-touch": "^1.4.0",
+    "angular-gravatar": "^0.4.2",
+    "angular-messages": "^1.6.9",
+    "outdated-browser": "^1.1.5",
+    "family.scss": "^1.0.8",
+    "bourbon": "^5.0.0",
+    "sass-mq": "^4.0.2",
+    "ngToast": "ngtoast#^2.0.0",
+    "animatewithsass": "^3.2.2",
+    "angular-click-outside": "^2.10.2",
+    "ng-timeago": "^0",
+    "angular-loading-bar": "^0.9.0",
+    "angularjs-sass-pack": "^2.0.1",
+    "angular-filter": "^0.5.17",
+    "allmighty-autocomplete": "*",
+    "angular-ui-scroll": "^1.7.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "app",
+  "moduleName": "testingApp"
+}

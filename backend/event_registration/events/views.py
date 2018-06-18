@@ -14,7 +14,8 @@ def event_list(request):
 def event_detail(request, slug):
     # return HttpResponse(slug)
     event = Event.objects.get(slug=slug)
-    event.registered_people = event.registered_people.split(' ')
+    if event.registered_people:
+        event.registered_people = event.registered_people.split(' ')
     return render(request, 'events/event_detail.html', {'event': event})
 
 
