@@ -1,5 +1,9 @@
 # Simple backend event registration
 
+screenshots: https://imgur.com/a/3DRBJv8
+![event list](https://i.imgur.com/SuU065d.png)
+![event details](https://i.imgur.com/PPwwnCT.png)
+
 -   only django is used. And basic css and es6 are used to style and add auto slug functionality. No other libraries are used (other than font-awesome icons)
 -   `pip install -r requirements.txt` and then `./manage.py runserver`
 -   add events and register to those events from register button.
