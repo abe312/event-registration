@@ -1,0 +1,45 @@
+{% load static from staticfiles %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Events</title>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fa-solid.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+</head>
+<body>
+    <header class="wrapper">
+        <h1><a href="{% url 'home' %}" class="font-cursive">
+            <!-- <img src="{% static 'logo.png' %}" alt="logo"> -->
+            Event Registration
+        </a></h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                <li>
+                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+                <li><a href="{% url 'events:create' %}" class="highlight">New Event</a></li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+</body>
+</html>

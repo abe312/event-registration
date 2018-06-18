@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<div class="event-detail">
+    <div class="event">
+        <img src="{{ event.thumb.url }}" alt="">
+        <h2>{{event.title}}</h2>
+        <p>{{event.body}}</p>
+        <p>{{event.date}}</p>
+
+
+        <a href="{% url 'events:register' slug_register=event.slug %}">Register <i class="fas fa-user-plus"></i></a>
+
+
+        <p>Registered people:</p>
+        {% for people in event.registered_people %}
+        <p>{{people}}</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
