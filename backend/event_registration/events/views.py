@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import Event
 # from django.http import HttpResponse
-from django.shortcuts import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from . import forms
 
@@ -40,12 +39,13 @@ def event_create(request):
 def event_register(request, slug_register):
     print("here")
     event = Event.objects.get(slug=slug_register)
-    type(event.registered_people)
+    #    print(type(event.registered_people)_
     search = str(request.user)+" "
     if search not in event.registered_people:
         event.registered_people = str(event.registered_people) + str(request.user) + " "
         event.save()
     else:
+        # print to manage.py shell
         print("you're already registered!")
     #    return redirect('events:detail')
     #    return render(request, 'events/event_detail.html', {'event': event})
