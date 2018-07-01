@@ -12,7 +12,7 @@ class Event(models.Model):
     thumb = models.ImageField(default="default.png", blank=True)
     # event created by
     author = models.ForeignKey(User, default=None)
-    registered_people = models.CharField(max_length=5000, blank=True, null=True)
+    registered_people = models.CharField(max_length=5000, blank=True, default="")
 
     def __str__(self):
         return self.title

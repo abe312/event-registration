@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Event
 # from django.http import HttpResponse
+from django.shortcuts import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from . import forms
 
@@ -37,6 +38,15 @@ def event_create(request):
 
 @login_required(login_url="/accounts/login/")
 def event_register(request, slug_register):
-    current_event = Event.objects.get(slug=slug_register)
-    current_event.registered_people += " " + str(request.user)
-    return redirect('events:list')
+    print("here")
+    event = Event.objects.get(slug=slug_register)
+    type(event.registered_people)
+    search = str(request.user)+" "
+    if search not in event.registered_people:
+        event.registered_people = str(event.registered_people) + str(request.user) + " "
+        event.save()
+    else:
+        print("you're already registered!")
+    #    return redirect('events:detail')
+    #    return render(request, 'events/event_detail.html', {'event': event})
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
